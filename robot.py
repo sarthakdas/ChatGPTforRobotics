@@ -54,7 +54,7 @@ class KukaRobot:
         print(f'KukaRobot: {self.n_joints} joints')
         
     def kuka_control(self, target_pos, gripper_val):
-
+        '''Move the robot to the target position and set the gripper value. Input: target position and gripper value. Output: None.'''
         target_orn = p.getQuaternionFromEuler([0, 1.01*math.pi, 0])
 
         joint_poses = p.calculateInverseKinematics(self.kuka_id, self.kuka_end_effector_idx, target_pos, target_orn)
@@ -74,18 +74,22 @@ class KukaRobot:
                     self.kuka_cid = p.createConstraint(self.kuka_id, 6, grasped_obj, -1, p.JOINT_FIXED, [0, 0, 0], [0, 0, 0.05], [0, 0, 0])
 
     def get_end_effector_force(self):
+        '''Return the force of the end effector. Output: end effector force vector.'''
         return p.getJointState(self.kuka_id, self.kuka_end_effector_idx)[2]
     
     def object_grasped(self):
+        # TODO: Implement this function
         return None
         # check the closest object to the gripper that is max 3 cm away
         closest_object = p.getClosestPoints(self.kuka_gripper_id, 0.03)
         return closest_object[0][2] if len(closest_object) > 0 else None
 
     def get_end_effector_position(self):
+        '''Return the position of the end effector. Output: end effector position.'''
         return p.getLinkState(self.kuka_id, self.kuka_end_effector_idx)[0]
 
     def get_joint_position(self, joint_id):
+        '''Return the position of the joint. Input: joint id. Output: joint position.'''
         # return joint cartesian position
         return p.getLinkState(self.kuka_id, joint_id)[0]
         

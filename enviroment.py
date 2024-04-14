@@ -52,6 +52,8 @@ class tableTopEnv:
     #     p.setJointMotorControl2(self.kuka_id, 7, p.POSITION_CONTROL, gripper_val, force=5 * 240.)
 
     def time_sequence(self, target_pos, target_gripper_val):
+        '''Moves the robot to the target position and set the gripper value, will do this until the target position is reached.
+        Input: target position and gripper value. Output: None.'''
         running = True
         
         while running:
@@ -87,6 +89,7 @@ class tableTopEnv:
                 running = False
 
     def get_object_positons(self):
+        '''Return a dictionary of object positions. Output: dictionary of object positions.'''
         # return a dictionary of object positions
         object_positions = {}
         for obj in self.moveable_objects:
@@ -95,15 +98,18 @@ class tableTopEnv:
         return object_positions
     
     def get_object_position(self, obj):
+        '''Return the position of the object. Input: object id. Output: object position.'''
         return p.getBasePositionAndOrientation(obj)
 
     def time_step(self):
+        '''Step the simulation forward by one time step, and record the frame. Output: None.'''
         for cam in self.cameras:
             cam.record_frame()
         p.stepSimulation()
         self.sim_step += 1
 
     def stop(self):
+        '''Disconnect from the physics server and close the cameras. Output: None.'''
         p.disconnect()
         for cam in self.cameras:
             cam.close()
