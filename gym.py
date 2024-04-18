@@ -20,6 +20,7 @@ env = enviroment.tableTopEnv()
 
 
 def pick_up_cube(cube_id):
+    '''get the cube position and move above it then close the gripper and lift the cube up'''
     # get cube position 
     cube_pos, _ = env.get_object_position(cube_id)
 
@@ -43,7 +44,8 @@ def pick_up_cube(cube_id):
     # wait for 50 steps
     wait(10)
 
-def place_cube(cube_id, target_pos):
+def place_cube(target_pos):
+    ''' get the target position and move above it then open the gripper and place the cube'''
     # go to position
     go_to_position(target_pos, 0.05, 25)
     wait(10)
@@ -75,6 +77,7 @@ def move_cube(cube_id, target_pos):
 
 
 def go_to_position(target_pos, gripper_val, time=10):
+    '''move the robot to the target position and set the gripper value in time steps. Input: target position, gripper value and time. Output: None.'''
     # linear interpolate to target position in time steps
     # get current position
     pos = env.robot.get_end_effector_position()
@@ -86,6 +89,18 @@ def go_to_position(target_pos, gripper_val, time=10):
         # # wait for time
         # env.time_step()
 
+def object_list():
+    '''get the object list and return the object list as a list. Output: object dictionary of colour_name:object_id.'''
+    # get the object list
+    object_list = env.object_list
+    return object_list
+
+def get_object_position(obj):
+    '''get the object position and return the object position. Input: object id. Output: object position [X,Y,Z].'''
+    # get the object position
+    pos, _ = env.get_object_position(obj)
+    return pos
+
 def wait(steps=50):
     for _ in range(steps):
         env.time_step()
@@ -94,17 +109,22 @@ def wait(steps=50):
 # Robots gripper length is 0.32
 
 # get the cube position
-cube_pos, _ = env.get_object_position(env.cube_id)
+selected_cube_id = env.obj_name_to_id[env.object_list[0]]
+print(selected_cube_id)
+cube_pos, _ = env.get_object_position(selected_cube_id)
+print(cube_pos)
 target_pos = [cube_pos[0], cube_pos[1]+0.4, cube_pos[2]]
 
 p.addUserDebugLine(cube_pos, target_pos, [1, 0, 0], 5)
 
 # Use function to move the cube
-move_cube(env.cube_id, target_pos)
+move_cube(selected_cube_id, target_pos)
 
 # move the robot arm up from the cubes current position 
 target_pos[2] += 0.5
-go_to_position(target_pos, 0, 25)
-wait(25)
+go_to_position(target_pos, 0, 0)
+wait(10)
+cube_pos, _ = env.get_object_position(selected_cube_id)
+print(cube_pos)
 
 env.stop()

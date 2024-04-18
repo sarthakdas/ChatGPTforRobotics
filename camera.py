@@ -35,27 +35,22 @@ class video_recorder:
         p.resetDebugVisualizerCamera(self.cam_distance, self.cam_yaw, self.cam_pitch, self.cam_target_pos)
         p.getDebugVisualizerCamera()
     
-    def record_frame(self):
+    def record_frame(self,text="hello"):
         cam_view_matrix = p.computeViewMatrixFromYawPitchRoll(self.cam_target_pos, self.cam_distance, self.cam_yaw, self.cam_pitch, self.cam_roll, self.cam_up_axis_idx)
         cam_projection_matrix = p.computeProjectionMatrixFOV(self.cam_fov, self.cam_width*1./self.cam_height, self.cam_near_plane, self.cam_far_plane)
         image = p.getCameraImage(self.cam_width, self.cam_height, cam_view_matrix, cam_projection_matrix)[2][:, :, :3]
-        # video.write(cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
+        # self.vid.write(cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
         # add text to the image
-        # image = self.prepare_array_for_cv2(image)
-        # cv2.putText(image, f'Task: {target_pos}, Gripper:{gripper_val}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
-        # get robot coordinates
-        # linkState = p.getLinkState(kuka_id, kuka_end_effector_idx)
-        # convert tuple to array 
-        # linkState = np.array(linkState[4])
-        # convert to 2dp 
-        # linkState = np.round(linkState, 2)
-        # cv2.putText(image, f'Robot: {linkState}', (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
+        image = self.prepare_array_for_cv2(image)
+        cv2.putText(image, 'Task:', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
+        # convert the image back to RGB
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         self.vid.send(np.ascontiguousarray(image))
 
     def close(self):
         self.vid.close()
 
-    def prepare_array_for_cv2(array):
+    def prepare_array_for_cv2(self,array):
         # Check if the array is in RGB format and convert to BGR
         if array.ndim == 3 and array.shape[2] == 3:
             array = cv2.cvtColor(array, cv2.COLOR_RGB2BGR)
