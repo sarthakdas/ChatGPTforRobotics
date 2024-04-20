@@ -11,6 +11,8 @@ import imageio_ffmpeg
 from base64 import b64encode
 from IPython.display import HTML
 
+
+
 class video_recorder:
 
     def __init__(self, pos=[0.95, -0.2, 0.2], distance=2.05, yaw=-50, pitch=-40, roll=0, width=480, height=360, up=[0, 0, 1], up_axis_idx=2, near_plane=0.01, far_plane=100, fov=60, filename='static.mp4'):
@@ -31,6 +33,10 @@ class video_recorder:
         self.vid = imageio_ffmpeg.write_frames(filename, (self.cam_width, self.cam_height), fps=30)
         self.vid.send(None) # seed the video writer with a blank frame
         
+        self.task = ""
+        self.robot_pos = ""
+        self.robot_target_pos = ""
+
         # Set the camera properties
         p.resetDebugVisualizerCamera(self.cam_distance, self.cam_yaw, self.cam_pitch, self.cam_target_pos)
         p.getDebugVisualizerCamera()
@@ -42,7 +48,10 @@ class video_recorder:
         # self.vid.write(cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
         # add text to the image
         image = self.prepare_array_for_cv2(image)
-        cv2.putText(image, 'Task:', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
+
+        cv2.putText(image, self.task , (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
+        cv2.putText(image, self.robot_pos , (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
+        cv2.putText(image, self.robot_target_pos , (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
         # convert the image back to RGB
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         self.vid.send(np.ascontiguousarray(image))

@@ -72,7 +72,7 @@ class tableTopEnv:
         min_x, min_y, min_z = np.min(BOUNDS, axis=0)
         max_x, max_y, max_z = np.max(BOUNDS, axis=0)
 
-        num_blocks = 3 #@param {type:"slider", min:0, max:4, step:1}
+        num_blocks = 4 #@param {type:"slider", min:0, max:4, step:1}
 
         block_list = np.random.choice(ALL_BLOCKS, size=num_blocks, replace=False).tolist()
         obj_list = block_list 
@@ -82,20 +82,10 @@ class tableTopEnv:
         obj_xyz = np.zeros((0, 3))
         for obj_name in obj_list:
             if ('block' in obj_name):
-
-                # Get random position 15cm+ from other objects.
-                while True:
-                    random_x = np.random.uniform(0.95, 0.75)
-                    random_y = np.random.uniform(-0.1, 0.1)
-                    rand_xyz = np.array([[random_x, random_y, 0.65]])
-                    if len(obj_xyz) == 0:
-                        obj_xyz = np.concatenate((obj_xyz, rand_xyz), axis=0)
-                        break
-                    else:
-                        nn_dist = np.min(np.linalg.norm(obj_xyz - rand_xyz, axis=1)).squeeze()
-                        if nn_dist > 0.15:
-                            obj_xyz = np.concatenate((obj_xyz, rand_xyz), axis=0)
-                            break
+                random_x = np.random.uniform(0.95, 0.75)
+                random_y = np.random.uniform(-0.1, 0.1)
+                rand_xyz = np.array([[random_x, random_y, 0.65]])
+                    
                 
                 object_color = COLORS[obj_name.split(' ')[0]]
                 object_type = obj_name.split(' ')[1]
@@ -125,6 +115,10 @@ class tableTopEnv:
         
         while running:
             print(f'\rtimestep {self.sim_step}...', end='')
+
+            # update the camera text to 2 decimal places
+            self.main_cam.robot_pos = f'Robot position x: {self.robot.get_end_effector_position()[0]:.2f}, y: {self.robot.get_end_effector_position()[1]:.2f}, z: {self.robot.get_end_effector_position()[2]:.2f}'
+            self.main_cam.robot_target_pos = f'Target position x: {target_pos[0]:.2f}, y: {target_pos[1]:.2f}, z: {target_pos[2]:.2f}'
 
 
             self.robot.kuka_control(target_pos, target_gripper_val)
