@@ -60,13 +60,14 @@ class tableTopEnv:
         self.planeId = p.loadURDF("plane.urdf")
         self.table_id = p.loadURDF("table/table.urdf", basePosition=[1.0, -0.0, 0.0], baseOrientation=[0, 0, 0.7071, 0.7071])
         self.cube_center = p.loadURDF("cube.urdf", basePosition=[0.0, 0, 0], globalScaling=0.1)
-        self.robot = robot.KukaRobot(tool="gripper", basePosition=[1.40, -0.0, 0.60], baseOrientation=[0, 0, 0, 1])
+        self.robot = robot.KukaRobot(tool="suction", basePosition=[1.40, -0.0, 0.60], baseOrientation=[0, 0, 0, 1])
         
         self.cameras = []
         
         self.main_cam = camera.video_recorder()
         self.cameras.append(self.main_cam)
 
+        self.gripped_object = None
 
 
         min_x, min_y, min_z = np.min(BOUNDS, axis=0)
@@ -93,7 +94,7 @@ class tableTopEnv:
                 if object_type == 'block':
                     object_shape = p.createCollisionShape(p.GEOM_BOX, halfExtents=[0.025, 0.025, 0.025])
                     object_visual = p.createVisualShape(p.GEOM_BOX, halfExtents=[0.025, 0.025, 0.025])
-                    object_id = p.createMultiBody(0.05, object_shape, object_visual, basePosition=object_position)
+                    object_id = p.createMultiBody(10, object_shape, object_visual, basePosition=object_position)
                 p.changeVisualShape(object_id, -1, rgbaColor=object_color)
                 self.obj_name_to_id[obj_name] = object_id
         print(self.obj_name_to_id)
@@ -122,6 +123,26 @@ class tableTopEnv:
 
 
             self.robot.kuka_control(target_pos, target_gripper_val)
+            # print("gripped_object: ", self.gripped_object)
+            if self.robot.suction == True and self.gripped_object is None:
+                # get the object that is being sucked
+                cube_id = self.object_id_of_being_sucked()
+                if cube_id is not None:
+                    # get the object position and orientation
+                    cube_pos, cube_orn = p.getBasePositionAndOrientation(cube_id)
+                    # create a constraint between the end effector and the object that is being sucked
+                    self.gripped_object = p.createConstraint(self.robot.kuka_id, 6, cube_id, -1, p.JOINT_FIXED, [0, 0, 0], [0, 0, 0.05], [0, 0, 0], childFrameOrientation=cube_orn)
+                    
+                    # print(f'Object {cube_id} is being sucked...')
+            elif self.robot.suction == False and self.gripped_object is not None:
+                # remove the constraint if the object is not being sucked
+                if self.gripped_object is not None:
+                    # print('Object is not being sucked...')
+                    p.removeConstraint(self.gripped_object)
+                    self.gripped_object = None
+                    self.robot.suction = False
+                    # print('Object is not being sucked...')
+
 
             # Step the simulation forward
             self.time_step()
@@ -148,6 +169,20 @@ class tableTopEnv:
             # check if the EE is close to the target and gripper is at the target value or force is too high
             if (np.linalg.norm(np.array(EE_pos) - np.array(target_pos)) < 0.04):
                 running = False
+
+    def object_id_of_being_sucked(self):
+         # get cube_id that is closest to the end effector if no object is within 3 cm then return None
+        min_dist = 0.10
+        cube_id = None
+        for obj_name, obj_id in self.obj_name_to_id.items():
+            obj_pos, _ = p.getBasePositionAndOrientation(obj_id)
+            EE_pos = self.robot.get_end_effector_position()
+            dist = np.linalg.norm(np.array(obj_pos) - np.array(EE_pos))
+            if dist < min_dist:
+                min_dist = dist
+                cube_id = obj_id
+
+        return cube_id
 
     def get_object_positons(self):
         '''Return a dictionary of object positions. Output: dictionary of object positions.'''

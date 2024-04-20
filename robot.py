@@ -17,6 +17,11 @@ class KukaRobot:
     def __init__(self, tool="suction", basePosition=[1.400000, -0.200000, 0.600000], baseOrientation=[0.000000, 0.000000, 0.000000, 1.000000]):
         self.kuka_id = p.loadURDF("kuka_iiwa/model_vr_limits.urdf", basePosition=basePosition, baseOrientation=baseOrientation)
 
+        jointPositions = [-0.000000, -0.000000, 0.000000, 1.570793, 0.000000, -1.036725, 0.000001]
+        for jointIndex in range(p.getNumJoints(self.kuka_id)):
+            p.resetJointState(self.kuka_id, jointIndex, jointPositions[jointIndex])
+            p.setJointMotorControl2(self.kuka_id, jointIndex, p.POSITION_CONTROL, jointPositions[jointIndex], 0)
+
         if tool == "gripper":
             self.kuka_gripper_id = p.loadSDF("gripper/wsg50_one_motor_gripper_new_free_base.sdf")[0]
 
@@ -26,10 +31,7 @@ class KukaRobot:
             p.changeConstraint(self.kuka_cid2, gearRatio=-1, erp=0.5, relativePositionTarget=0, maxForce=100)
 
             # reset kuka
-            jointPositions = [-0.000000, -0.000000, 0.000000, 1.570793, 0.000000, -1.036725, 0.000001]
-            for jointIndex in range(p.getNumJoints(self.kuka_id)):
-                p.resetJointState(self.kuka_id, jointIndex, jointPositions[jointIndex])
-                p.setJointMotorControl2(self.kuka_id, jointIndex, p.POSITION_CONTROL, jointPositions[jointIndex], 0)
+
 
             # reset gripper
             p.resetBasePositionAndOrientation(self.kuka_gripper_id, [0.923103, -0.200000, 1.250036], [-0.000000, 0.964531, -0.000002, -0.263970])
@@ -41,10 +43,13 @@ class KukaRobot:
             self.kuka_end_effector_idx = 6
         
         elif tool == "suction":
+            
             # Treat last link as end effector
+            self.n_joints = p.getNumJoints(self.kuka_id)
             self.kuka_gripper_id = None
             self.kuka_end_effector_idx = 6
             self.kuka_cid = None
+            self.suction = False
         else:
             raise ValueError(f"Unknown tool: {tool}")
         
@@ -65,27 +70,19 @@ class KukaRobot:
             p.setJointMotorControl2(self.kuka_gripper_id, 4, p.POSITION_CONTROL, targetPosition=gripper_val, force=100)
             p.setJointMotorControl2(self.kuka_gripper_id, 6, p.POSITION_CONTROL, targetPosition=gripper_val, force=100)
         elif self.tool == "suction":
-            if gripper_val == 0 and self.kuka_cid != None:
-                p.removeConstraint(self.kuka_cid)
-                self.kuka_cid = None
-            if gripper_val == 1 and self.kuka_cid == None:
-                grasped_obj = self.object_grasped()
-                if grasped_obj != None:
-                    self.kuka_cid = p.createConstraint(self.kuka_id, 6, grasped_obj, -1, p.JOINT_FIXED, [0, 0, 0], [0, 0, 0.05], [0, 0, 0])
+            if gripper_val == 0:
+                self.suction = False
+            if gripper_val == 1:
+                self.suction = True
+
 
     def get_end_effector_force(self):
         '''Return the force of the end effector. Output: end effector force vector.'''
         return p.getJointState(self.kuka_id, self.kuka_end_effector_idx)[2]
-    
-    def object_grasped(self):
-        # TODO: Implement this function
-        return None
-        # check the closest object to the gripper that is max 3 cm away
-        closest_object = p.getClosestPoints(self.kuka_gripper_id, 0.03)
-        return closest_object[0][2] if len(closest_object) > 0 else None
 
     def get_end_effector_position(self):
         '''Return the position of the end effector. Output: end effector position.'''
+        # print(p.getLinkState(self.kuka_id, self.kuka_end_effector_idx)[0])
         return p.getLinkState(self.kuka_id, self.kuka_end_effector_idx)[0]
 
     def get_joint_position(self, joint_id):
