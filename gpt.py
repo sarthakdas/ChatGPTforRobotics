@@ -1,7 +1,7 @@
 from openai import OpenAI
 
 # TODO USE .ENV FILE
-client = OpenAI(api_key="sk-proj-GkEjnF9JJbFQ2k39cuSvT3BlbkFJKd97S1ak2HSpUcn2fMLh")
+
 # client = OpenAI()
 
 
