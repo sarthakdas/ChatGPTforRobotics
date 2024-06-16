@@ -10,6 +10,7 @@ import cv2
 import imageio_ffmpeg
 from base64 import b64encode
 from IPython.display import HTML
+from urdf_models import models_data
 
 import camera
 import robot
@@ -65,49 +66,31 @@ class tableTopEnv:
         self.cameras = []
         
         self.main_cam = camera.video_recorder()
+        
         self.cameras.append(self.main_cam)
-
-        self.gripped_object = None
-
-
-        min_x, min_y, min_z = np.min(BOUNDS, axis=0)
-        max_x, max_y, max_z = np.max(BOUNDS, axis=0)
-
-        num_blocks = 4 #@param {type:"slider", min:0, max:4, step:1}
-
-        block_list = np.random.choice(ALL_BLOCKS, size=num_blocks, replace=False).tolist()
-        obj_list = block_list 
-
-        self.object_list = obj_list
-        self.obj_name_to_id = {}
-        obj_xyz = np.zeros((0, 3))
-        for obj_name in obj_list:
-            if ('block' in obj_name):
-                random_x = np.random.uniform(0.95, 0.75)
-                random_y = np.random.uniform(-0.1, 0.1)
-                rand_xyz = np.array([[random_x, random_y, 0.65]])
-                    
-                
-                object_color = COLORS[obj_name.split(' ')[0]]
-                object_type = obj_name.split(' ')[1]
-                object_position = rand_xyz.squeeze()
-                if object_type == 'block':
-                    object_shape = p.createCollisionShape(p.GEOM_BOX, halfExtents=[0.025, 0.025, 0.025])
-                    object_visual = p.createVisualShape(p.GEOM_BOX, halfExtents=[0.025, 0.025, 0.025])
-                    object_id = p.createMultiBody(10, object_shape, object_visual, basePosition=object_position)
-                p.changeVisualShape(object_id, -1, rgbaColor=object_color)
-                self.obj_name_to_id[obj_name] = object_id
-        print(self.obj_name_to_id)
 
         # create a camera that looks top down on the table
         # self.topdown_cam = camera.video_recorder(pos=[1.0, -0.2, 0.5], distance=1.0, yaw=0, pitch=-90, roll=0, width=480, height=360, filename='topdown.mp4')
         # self.cameras.append(self.topdown_cam)
 
-    # def kuka_control(self, target_pos, gripper_val):
-    #     jointPoses = p.calculateInverseKinematics(self.kuka_id, self.n_joints, target_pos)
-    #     for i in range(self.n_joints):
-    #         p.setJointMotorControl2(self.kuka_id, i, p.POSITION_CONTROL, jointPoses[i], force=5 * 240.)
-    #     p.setJointMotorControl2(self.kuka_id, 7, p.POSITION_CONTROL, gripper_val, force=5 * 240.)
+        self.gripped_object = None
+        self.obj_name_to_id = {}
+
+
+        # 3 plates and food items
+        self.load_objects(["plate","blue_plate","square_plate_4", "plastic_plum", "plastic_pear", "plastic_apple", "plastic_strawberry", "plastic_lemon"], [[0.85, -0.20, 0.65],[0.9, 0.0, 0.65], [0.85, 0.2, 0.65], [0.85, -0.2, 0.7], [0.9, -0.2, 0.7], [0.8, -0.2, 0.7], [0.9, 0.0, 0.7], [0.85, 0.2, 0.7]])
+
+        # 3 plates and 3 cubes
+        # self.load_objects(["plate","blue_plate","square_plate_4"], [[0.85, -0.20, 0.65],[0.9, 0.0, 0.65], [0.85, 0.2, 0.65]], num_cubes=0)
+
+
+
+        # timestep 50 times to let the objects settle
+        for _ in range(50):
+            self.time_step()
+        
+        print("Environment initialized")
+        print("Objects in the enviroment: ", self.obj_name_to_id.keys())
 
     def time_sequence(self, target_pos, target_gripper_val):
         '''Moves the robot to the target position and set the gripper value, will do this until the target position is reached.
@@ -126,12 +109,13 @@ class tableTopEnv:
             # print("gripped_object: ", self.gripped_object)
             if self.robot.suction == True and self.gripped_object is None:
                 # get the object that is being sucked
-                cube_id = self.object_id_of_being_sucked()
-                if cube_id is not None:
+                object = self.object_id_of_being_sucked()
+                if object is not None:
                     # get the object position and orientation
-                    cube_pos, cube_orn = p.getBasePositionAndOrientation(cube_id)
+                    obj_pos, obj_orn = p.getBasePositionAndOrientation(object)
+                    obj_orn = p.getQuaternionFromEuler([0, math.pi, 0])
                     # create a constraint between the end effector and the object that is being sucked
-                    self.gripped_object = p.createConstraint(self.robot.kuka_id, 6, cube_id, -1, p.JOINT_FIXED, [0, 0, 0], [0, 0, 0.05], [0, 0, 0], childFrameOrientation=cube_orn)
+                    self.gripped_object = p.createConstraint(self.robot.kuka_id, 6, object, -1, p.JOINT_FIXED, [0, 0, 0], [0, 0, 0.05], [0, 0, 0], childFrameOrientation=obj_orn)
                     
                     # print(f'Object {cube_id} is being sucked...')
             elif self.robot.suction == False and self.gripped_object is not None:
@@ -172,12 +156,13 @@ class tableTopEnv:
 
     def object_id_of_being_sucked(self):
          # get cube_id that is closest to the end effector if no object is within 3 cm then return None
-        min_dist = 0.10
+        min_dist = 0.13
         cube_id = None
         for obj_name, obj_id in self.obj_name_to_id.items():
             obj_pos, _ = p.getBasePositionAndOrientation(obj_id)
             EE_pos = self.robot.get_end_effector_position()
             dist = np.linalg.norm(np.array(obj_pos) - np.array(EE_pos))
+            print(f'dist from object: {obj_name} is {dist:.2f}...', end='')
             if dist < min_dist:
                 min_dist = dist
                 cube_id = obj_id
@@ -210,3 +195,46 @@ class tableTopEnv:
         for cam in self.cameras:
             cam.close()
 
+    def load_objects(self, objects, positions=False, num_cubes=0):
+        
+        flags = p.URDF_USE_INERTIA_FROM_FILE
+        models = models_data.model_lib()
+        namelist = models.model_name_list
+
+        if positions != False and len(objects) != len(positions):
+            raise ValueError("If positions are given, they must be the same length as the objects list.")
+
+        for i in range(len(objects)):
+            if positions == False:
+                random_x = np.random.uniform(0.95, 0.75)
+                random_y = np.random.uniform(-0.1, 0.1)
+                rand_xyz = np.array([[random_x, random_y, 0.65]])
+                object_position = rand_xyz.squeeze()
+            else:
+                object_position = positions[i]
+            self.obj_name_to_id[objects[i]] = p.loadURDF(models[objects[i]], object_position, flags=flags)
+
+        if num_cubes > 0:
+            self.load_random_cubes(num_cubes)
+
+    def load_random_cubes(self,numer_of_cubes):
+        block_list = np.random.choice(ALL_BLOCKS, size=numer_of_cubes, replace=False).tolist() 
+
+
+        for obj_name in block_list:
+            if ('block' in obj_name):
+                random_x = np.random.uniform(0.95, 0.75)
+                random_y = np.random.uniform(-0.1, 0.1)
+                rand_xyz = np.array([[random_x, random_y, 0.7]])
+                    
+                
+                object_color = COLORS[obj_name.split(' ')[0]]
+                object_type = obj_name.split(' ')[1]
+                object_position = rand_xyz.squeeze()
+                if object_type == 'block':
+                    object_shape = p.createCollisionShape(p.GEOM_BOX, halfExtents=[0.025, 0.025, 0.025])
+                    object_visual = p.createVisualShape(p.GEOM_BOX, halfExtents=[0.025, 0.025, 0.025])
+                    object_id = p.createMultiBody(0.1, object_shape, object_visual, basePosition=object_position)
+                p.changeVisualShape(object_id, -1, rgbaColor=object_color)
+                self.obj_name_to_id[obj_name] = object_id
+        

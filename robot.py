@@ -10,10 +10,9 @@ import cv2
 import imageio_ffmpeg
 from base64 import b64encode
 from IPython.display import HTML
-
+import urdf_models.models_data as md
 
 class KukaRobot:
-
     def __init__(self, tool="suction", basePosition=[1.400000, -0.200000, 0.600000], baseOrientation=[0.000000, 0.000000, 0.000000, 1.000000]):
         self.kuka_id = p.loadURDF("kuka_iiwa/model_vr_limits.urdf", basePosition=basePosition, baseOrientation=baseOrientation)
 

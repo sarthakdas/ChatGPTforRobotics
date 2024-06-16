@@ -15,7 +15,7 @@ from IPython.display import HTML
 
 class video_recorder:
 
-    def __init__(self, pos=[0.95, -0.2, 0.2], distance=2.05, yaw=-50, pitch=-40, roll=0, width=480, height=360, up=[0, 0, 1], up_axis_idx=2, near_plane=0.01, far_plane=100, fov=60, filename='static.mp4'):
+    def __init__(self, pos=[0.95, -0.2, 0.2], distance=2.05, yaw=-50, pitch=-40, roll=0, width=480, height=480, up=[0, 0, 1], up_axis_idx=2, near_plane=0.01, far_plane=100, fov=60, filename='static.mp4'):
         self.cam_width = width
         self.cam_height = height
         self.cam_target_pos = pos

@@ -13,10 +13,10 @@ from IPython.display import HTML
 
 import camera
 import enviroment
-
-
+import gpt
 
 env = enviroment.tableTopEnv()
+code_gen = gpt.OpenAIClient()
 
 def go_to_position(target_pos, gripper_val, time=10):
     '''move the robot to the target position and set the gripper value in time steps,
@@ -56,69 +56,27 @@ def wait(steps=10):
 
 # ========================
 # ========================
-print("========================")
+# get prompt from user and generate code
+# get objects in the scene
+objects = object_name_to_id_dic()
+# get the postions of all the objects using a for loop and save to dictionary
+object_positions = {}
+for key in objects.keys():
+    object_positions[key] = get_object_position(objects[key])
+prompt = code_gen.process(object_positions)
 
-def arrange_cubes_in_line():
-    # Fetch the cube information
-    cubes = object_name_to_id_dic()
-    print("Cube information:", cubes)
-    
-    # Set the target positions
-    start_x = 1.1  # Starting x position for the first cube
-    increment_x = 0.1  # Distance between each cube
-    table_height = 0.65
-    safe_height_above_cube = 0.1
-    safe_height_above_table = 0.15  # Safe height to drop the cube
-    gap = 0.1  # Gap between cubes
+with open("prompts/response.py", 'r') as file:
+    code = file.read()
 
-    # Iterate over each cube to move them
-    for index, (cube_name, cube_id) in enumerate(cubes.items()):
-        print(f"Moving {cube_name}")
-        # Set task description
-        env.main_cam.task = f"Locating {cube_name}"
-        
-        # Get current position of the cube
-        cube_pos = get_object_position(cube_id)
-        print(f"Current position of {cube_name}:", cube_pos)
-        
-        # Move to cube position at safe height
-        target_pos_above_cube = [cube_pos[0], cube_pos[1], cube_pos[2] + safe_height_above_cube]
-        target_pos_above_cube_safe = [cube_pos[0], cube_pos[1], cube_pos[2] + 2 * safe_height_above_cube]
-        go_to_position(target_pos_above_cube, gripper_val=0)
-        wait(5)  # Wait for gripper stabilization
-        
-        # Move down to grip the cube
-        go_to_position(target_pos_above_cube, gripper_val=0)
-        wait(5)  # Wait for stabilization
-        go_to_position(target_pos_above_cube, gripper_val=1)  # Close gripper
-        wait(5)  # Wait for gripper to close
-        
-        # Lift the cube up to safe height
-        go_to_position(target_pos_above_cube_safe, gripper_val=1)
-        
-        # Calculate new position in the line
-        target_x = start_x - index * (gap + 0.07)  # Position adjusted by cube size and gap
-        target_pos_line = [target_x, 0, table_height + safe_height_above_table]
-        env.main_cam.task = f"Placing {cube_name} at new position"
-        
-        # Move to new position above the target
-        go_to_position([target_x, 0, cube_pos[2] + 2 * safe_height_above_cube], gripper_val=1)
-        
-        # Lower cube to new position
-        go_to_position(target_pos_line, gripper_val=1)
-        wait(5)
-        go_to_position(target_pos_line, gripper_val=0)  # Open gripper
-        wait(5)  # Wait for gripper to open
-        
-        # Move back to safe height
-        go_to_position([target_x, 0, cube_pos[2] + safe_height_above_cube], gripper_val=0)
-    
-    # Return to original safe position after all movements
-    go_to_position([1.40, 0.0, 0.1], gripper_val=0)  # Return to starting position
-    env.main_cam.task = "Task completed"
 
-# Call the function to arrange the cubes
-arrange_cubes_in_line()
+print("=======EXECUTING GPT CODE=========")
+# read code form response.py
+exec(code)
+
+
+# go_to_position([0.85, -0.20, 0.65], 0, 10)
+# go_to_position([0.85, -0.20, 0.65], 1, 10)
+# go_to_position([0.85, -0.20, 1], 1, 10)
 
 
 # ========================
