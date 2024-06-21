@@ -10,13 +10,27 @@ import cv2
 import imageio_ffmpeg
 from base64 import b64encode
 from IPython.display import HTML
+<<<<<<< Updated upstream
+=======
+import random
+import keyboard
+import json
+>>>>>>> Stashed changes
 
 import camera
 import enviroment
 import gpt
 
+<<<<<<< Updated upstream
+=======
+# OpenAI API key from env
+openai_api_key = os.getenv('OPENAI_API_KEY')
+
+
+# Initialize environment and code generator
+>>>>>>> Stashed changes
 env = enviroment.tableTopEnv()
-code_gen = gpt.OpenAIClient()
+code_gen = gpt.OpenAIClient(api_key=openai_api_key)
 
 def go_to_position(target_pos, gripper_val, time=10):
     '''move the robot to the target position and set the gripper value in time steps,
@@ -53,6 +67,7 @@ def wait(steps=10):
     for _ in range(steps):
         env.time_step()
 
+<<<<<<< Updated upstream
 
 # ========================
 # ========================
@@ -77,11 +92,46 @@ exec(code)
 # go_to_position([0.85, -0.20, 0.65], 0, 10)
 # go_to_position([0.85, -0.20, 0.65], 1, 10)
 # go_to_position([0.85, -0.20, 1], 1, 10)
+=======
+def execute_waypoints_from_json(filepath, skip=0):
+    '''Execute waypoints from a JSON file, skipping waypoints as specified by the skip parameter.'''
+    # Load the JSON file
+    with open(filepath, 'r') as f:
+        data = json.load(f)
+    
+    # Get the waypoints from the JSON data
+    waypoints = data['demonstration']
+
+    env.robot.set_joint_positions(data['starting_joint_pos'])
+
+    # Execute waypoints with the specified skip parameter
+    for i in range(0, len(waypoints), skip + 1):
+        waypoint = waypoints[i]
+        pos = waypoint['xyz_position']
+        orn = waypoint['quaternion_orientation']
+        gripper_val = waypoint['gripper_state']
+        go_to_position(pos, orn, gripper_val, duration=1)
+        print(f"Moved to position: {pos} with orientation: {orn} and gripper value: {gripper_val}")
+
+    env.stop()
+
+# Hyperparameter to control how many waypoints to skip
+skip_waypoints = 0
+
+# Path to the JSON file
+# json_filepath = 'prompts/demonstrations/waypoints.json'
+json_filepath = 'prompts/response_waypoints.json'
+>>>>>>> Stashed changes
 
 
+<<<<<<< Updated upstream
 # ========================
 # ========================
 
 
 
 env.stop()
+=======
+# Execute the waypoints from the JSON file
+execute_waypoints_from_json(json_filepath, skip=skip_waypoints)
+>>>>>>> Stashed changes

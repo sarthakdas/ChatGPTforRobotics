@@ -49,11 +49,22 @@ BOUNDS = np.float32([[0.85, -0.0, 0.65], [0.85, -0.0, 0.65], [0.85, -0.0, 0.65],
 
 class tableTopEnv: 
 
-    def __init__(self):
+    def __init__(self, display=False):
         self.dt = 1/480
         self.sim_step = 0
 
+<<<<<<< Updated upstream
         p.connect(p.DIRECT) #p.DIRECT or p.GUI for graphical version
+=======
+        self.distance_threshold = 0.05
+        self.orientation_threshold = 0.2
+        self.time_step_movement_max = 50 #300
+
+        if display:
+            p.connect(p.GUI)
+        else:
+            p.connect(p.DIRECT) #p.DIRECT or p.GUI for graphical version
+>>>>>>> Stashed changes
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-10)
 
@@ -184,10 +195,14 @@ class tableTopEnv:
 
     def time_step(self):
         '''Step the simulation forward by one time step, and record the frame. Output: None.'''
-        for cam in self.cameras:
-            cam.record_frame()
+        self.capture_frames()
         p.stepSimulation()
         self.sim_step += 1
+
+    def capture_frames(self):
+         for cam in self.cameras:
+            cam.record_frame()
+
 
     def stop(self):
         '''Disconnect from the physics server and close the cameras. Output: None.'''

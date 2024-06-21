@@ -1,0 +1,146 @@
+{
+    "demonstration_name": "jsut go left",
+    "starting_joint_pos": [
+        -0.3,
+        -1.73,
+        -1.81,
+        -0.61,
+        -1.45,
+        -1.27,
+        0.47,
+        0.0,
+        0.0,
+        0.0,
+        0.02
+    ],
+    "demonstration": [
+        {
+            "index": 0,
+            "time_step": 1718715828.62,
+            "xyz_position": [
+                0.76,
+                -0.0,
+                1.0
+            ],
+            "quaternion_orientation": [
+                0.0,
+                -0.05,
+                -0.0,
+                1.0
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 20,
+            "time_step": 1718715834.28,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 40,
+            "time_step": 1718715839.93,
+            "xyz_position": [
+                0.92,
+                -0.01,
+                0.78
+            ],
+            "quaternion_orientation": [
+                -0.2,
+                0.51,
+                -0.01,
+                0.84
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 60,
+            "time_step": 1718715845.6,
+            "xyz_position": [
+                0.96,
+                -0.19,
+                0.81
+            ],
+            "quaternion_orientation": [
+                -0.29,
+                0.43,
+                -0.0,
+                0.86
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 80,
+            "time_step": 1718715851.37,
+            "xyz_position": [
+                1.03,
+                -0.31,
+                0.83
+            ],
+            "quaternion_orientation": [
+                -0.37,
+                0.37,
+                -0.0,
+                0.85
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 100,
+            "time_step": 1718715857.17,
+            "xyz_position": [
+                1.1,
+                -0.38,
+                0.84
+            ],
+            "quaternion_orientation": [
+                -0.44,
+                0.31,
+                -0.01,
+                0.84
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 120,
+            "time_step": 1718715862.94,
+            "xyz_position": [
+                1.15,
+                -0.41,
+                0.85
+            ],
+            "quaternion_orientation": [
+                -0.48,
+                0.25,
+                -0.01,
+                0.84
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 140,
+            "time_step": 1718715868.6,
+            "xyz_position": [
+                1.18,
+                -0.43,
+                0.86
+            ],
+            "quaternion_orientation": [
+                -0.51,
+                0.22,
+                -0.01,
+                0.83
+            ],
+            "gripper_state": 0.04
+        }
+    ]
+}

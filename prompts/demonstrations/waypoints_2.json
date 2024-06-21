@@ -1,0 +1,3602 @@
+{
+    "demonstration_name": "just go up",
+    "starting_joint_pos": [
+        -0.3,
+        -1.73,
+        -1.81,
+        -0.61,
+        -1.45,
+        -1.27,
+        0.47,
+        0.0,
+        0.0,
+        0.0,
+        0.02
+    ],
+    "demonstration": [
+        {
+            "index": 0,
+            "time_step": 1718715690.32,
+            "xyz_position": [
+                0.76,
+                -0.0,
+                1.0
+            ],
+            "quaternion_orientation": [
+                0.0,
+                -0.05,
+                -0.0,
+                1.0
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 1,
+            "time_step": 1718715690.62,
+            "xyz_position": [
+                0.88,
+                0.04,
+                0.89
+            ],
+            "quaternion_orientation": [
+                -0.09,
+                0.22,
+                -0.0,
+                0.97
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 2,
+            "time_step": 1718715690.93,
+            "xyz_position": [
+                0.91,
+                0.06,
+                0.84
+            ],
+            "quaternion_orientation": [
+                -0.17,
+                0.35,
+                -0.03,
+                0.92
+            ],
+            "gripper_state": -0.0
+        },
+        {
+            "index": 3,
+            "time_step": 1718715691.21,
+            "xyz_position": [
+                0.92,
+                0.07,
+                0.81
+            ],
+            "quaternion_orientation": [
+                -0.22,
+                0.42,
+                -0.04,
+                0.88
+            ],
+            "gripper_state": -0.0
+        },
+        {
+            "index": 4,
+            "time_step": 1718715691.52,
+            "xyz_position": [
+                0.92,
+                0.07,
+                0.78
+            ],
+            "quaternion_orientation": [
+                -0.25,
+                0.46,
+                -0.04,
+                0.85
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 5,
+            "time_step": 1718715691.77,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.77
+            ],
+            "quaternion_orientation": [
+                -0.26,
+                0.48,
+                -0.04,
+                0.84
+            ],
+            "gripper_state": -0.0
+        },
+        {
+            "index": 6,
+            "time_step": 1718715692.04,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.76
+            ],
+            "quaternion_orientation": [
+                -0.27,
+                0.49,
+                -0.04,
+                0.82
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 7,
+            "time_step": 1718715692.33,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.75
+            ],
+            "quaternion_orientation": [
+                -0.28,
+                0.5,
+                -0.04,
+                0.82
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 8,
+            "time_step": 1718715692.59,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.75
+            ],
+            "quaternion_orientation": [
+                -0.28,
+                0.5,
+                -0.04,
+                0.82
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 9,
+            "time_step": 1718715692.87,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.75
+            ],
+            "quaternion_orientation": [
+                -0.28,
+                0.51,
+                -0.04,
+                0.81
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 10,
+            "time_step": 1718715693.16,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.75
+            ],
+            "quaternion_orientation": [
+                -0.28,
+                0.51,
+                -0.04,
+                0.81
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 11,
+            "time_step": 1718715693.45,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.29,
+                0.51,
+                -0.04,
+                0.81
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 12,
+            "time_step": 1718715693.76,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.29,
+                0.51,
+                -0.04,
+                0.81
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 13,
+            "time_step": 1718715694.04,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.29,
+                0.51,
+                -0.04,
+                0.81
+            ],
+            "gripper_state": -0.0
+        },
+        {
+            "index": 14,
+            "time_step": 1718715694.31,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.29,
+                0.51,
+                -0.04,
+                0.81
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 15,
+            "time_step": 1718715694.58,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.29,
+                0.51,
+                -0.04,
+                0.81
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 16,
+            "time_step": 1718715694.86,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.29,
+                0.51,
+                -0.04,
+                0.81
+            ],
+            "gripper_state": -0.0
+        },
+        {
+            "index": 17,
+            "time_step": 1718715695.14,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.29,
+                0.51,
+                -0.04,
+                0.81
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 18,
+            "time_step": 1718715695.42,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.29,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 19,
+            "time_step": 1718715695.71,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.29,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 20,
+            "time_step": 1718715696.01,
+            "xyz_position": [
+                0.93,
+                0.07,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 21,
+            "time_step": 1718715696.27,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 22,
+            "time_step": 1718715696.56,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 23,
+            "time_step": 1718715696.82,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 24,
+            "time_step": 1718715697.3,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 25,
+            "time_step": 1718715697.45,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 26,
+            "time_step": 1718715697.7,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 27,
+            "time_step": 1718715698.07,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 28,
+            "time_step": 1718715698.37,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 29,
+            "time_step": 1718715698.75,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 30,
+            "time_step": 1718715699.17,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 31,
+            "time_step": 1718715699.36,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 32,
+            "time_step": 1718715699.62,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 33,
+            "time_step": 1718715699.87,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 34,
+            "time_step": 1718715700.13,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 35,
+            "time_step": 1718715700.44,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 36,
+            "time_step": 1718715700.69,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 37,
+            "time_step": 1718715700.99,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 38,
+            "time_step": 1718715701.24,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.0
+        },
+        {
+            "index": 39,
+            "time_step": 1718715701.5,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 40,
+            "time_step": 1718715701.78,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 41,
+            "time_step": 1718715702.03,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 42,
+            "time_step": 1718715702.29,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 43,
+            "time_step": 1718715702.58,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 44,
+            "time_step": 1718715702.86,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 45,
+            "time_step": 1718715703.16,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.3,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 46,
+            "time_step": 1718715703.44,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 47,
+            "time_step": 1718715703.7,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 48,
+            "time_step": 1718715703.97,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 49,
+            "time_step": 1718715704.25,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 50,
+            "time_step": 1718715704.52,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 51,
+            "time_step": 1718715704.8,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 52,
+            "time_step": 1718715705.1,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 53,
+            "time_step": 1718715705.39,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 54,
+            "time_step": 1718715705.69,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 55,
+            "time_step": 1718715705.99,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.01
+        },
+        {
+            "index": 56,
+            "time_step": 1718715706.27,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 57,
+            "time_step": 1718715706.57,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 58,
+            "time_step": 1718715706.84,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 59,
+            "time_step": 1718715707.14,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 60,
+            "time_step": 1718715707.45,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 61,
+            "time_step": 1718715707.75,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 62,
+            "time_step": 1718715708.01,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 63,
+            "time_step": 1718715708.31,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 64,
+            "time_step": 1718715708.61,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 65,
+            "time_step": 1718715708.9,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 66,
+            "time_step": 1718715709.18,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 67,
+            "time_step": 1718715709.48,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 68,
+            "time_step": 1718715709.74,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.52,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 69,
+            "time_step": 1718715710.04,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.02
+        },
+        {
+            "index": 70,
+            "time_step": 1718715710.3,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.03
+        },
+        {
+            "index": 71,
+            "time_step": 1718715710.58,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.03
+        },
+        {
+            "index": 72,
+            "time_step": 1718715710.87,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.03
+        },
+        {
+            "index": 73,
+            "time_step": 1718715711.18,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.03
+        },
+        {
+            "index": 74,
+            "time_step": 1718715711.48,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.03
+        },
+        {
+            "index": 75,
+            "time_step": 1718715711.79,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.03
+        },
+        {
+            "index": 76,
+            "time_step": 1718715712.11,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.03
+        },
+        {
+            "index": 77,
+            "time_step": 1718715712.44,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.03
+        },
+        {
+            "index": 78,
+            "time_step": 1718715712.73,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.03
+        },
+        {
+            "index": 79,
+            "time_step": 1718715713.0,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.03
+        },
+        {
+            "index": 80,
+            "time_step": 1718715713.29,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.03
+        },
+        {
+            "index": 81,
+            "time_step": 1718715713.61,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.31,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.03
+        },
+        {
+            "index": 82,
+            "time_step": 1718715713.9,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.04,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 83,
+            "time_step": 1718715714.21,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 84,
+            "time_step": 1718715714.49,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 85,
+            "time_step": 1718715714.8,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 86,
+            "time_step": 1718715715.12,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 87,
+            "time_step": 1718715715.4,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 88,
+            "time_step": 1718715715.69,
+            "xyz_position": [
+                0.93,
+                0.06,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 89,
+            "time_step": 1718715715.95,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 90,
+            "time_step": 1718715716.23,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 91,
+            "time_step": 1718715716.52,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 92,
+            "time_step": 1718715716.8,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 93,
+            "time_step": 1718715717.11,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 94,
+            "time_step": 1718715717.36,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 95,
+            "time_step": 1718715717.65,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 96,
+            "time_step": 1718715717.91,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 97,
+            "time_step": 1718715718.2,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 98,
+            "time_step": 1718715718.47,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.51,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 99,
+            "time_step": 1718715718.72,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 100,
+            "time_step": 1718715719.04,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 101,
+            "time_step": 1718715719.34,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 102,
+            "time_step": 1718715719.64,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 103,
+            "time_step": 1718715719.95,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 104,
+            "time_step": 1718715720.24,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 105,
+            "time_step": 1718715720.55,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 106,
+            "time_step": 1718715720.88,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.32,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 107,
+            "time_step": 1718715721.17,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 108,
+            "time_step": 1718715721.44,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 109,
+            "time_step": 1718715721.76,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 110,
+            "time_step": 1718715722.03,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 111,
+            "time_step": 1718715722.34,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 112,
+            "time_step": 1718715722.62,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 113,
+            "time_step": 1718715722.89,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 114,
+            "time_step": 1718715723.14,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 115,
+            "time_step": 1718715723.43,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 116,
+            "time_step": 1718715723.71,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 117,
+            "time_step": 1718715724.02,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 118,
+            "time_step": 1718715724.32,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 119,
+            "time_step": 1718715724.61,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 120,
+            "time_step": 1718715724.88,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.74
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 121,
+            "time_step": 1718715725.19,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.73
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 122,
+            "time_step": 1718715725.48,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.73
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.02,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 123,
+            "time_step": 1718715725.74,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.73
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.02,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 124,
+            "time_step": 1718715726.02,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.73
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 125,
+            "time_step": 1718715726.29,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.73
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.02,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 126,
+            "time_step": 1718715726.56,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.73
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.02,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 127,
+            "time_step": 1718715726.89,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.73
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.02,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 128,
+            "time_step": 1718715727.15,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.73
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.02,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 129,
+            "time_step": 1718715727.44,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.73
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.02,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 130,
+            "time_step": 1718715727.72,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.73
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.02,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 131,
+            "time_step": 1718715728.08,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.73
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.02,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 132,
+            "time_step": 1718715728.34,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.73
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.02,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 133,
+            "time_step": 1718715728.64,
+            "xyz_position": [
+                0.93,
+                0.05,
+                0.73
+            ],
+            "quaternion_orientation": [
+                -0.33,
+                0.5,
+                -0.03,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 134,
+            "time_step": 1718715728.94,
+            "xyz_position": [
+                0.92,
+                0.04,
+                0.75
+            ],
+            "quaternion_orientation": [
+                -0.29,
+                0.51,
+                -0.02,
+                0.81
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 135,
+            "time_step": 1718715729.22,
+            "xyz_position": [
+                0.92,
+                0.04,
+                0.75
+            ],
+            "quaternion_orientation": [
+                -0.25,
+                0.52,
+                -0.02,
+                0.82
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 136,
+            "time_step": 1718715729.48,
+            "xyz_position": [
+                0.92,
+                0.04,
+                0.76
+            ],
+            "quaternion_orientation": [
+                -0.22,
+                0.53,
+                -0.01,
+                0.82
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 137,
+            "time_step": 1718715729.77,
+            "xyz_position": [
+                0.92,
+                0.04,
+                0.78
+            ],
+            "quaternion_orientation": [
+                -0.2,
+                0.53,
+                -0.01,
+                0.82
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 138,
+            "time_step": 1718715730.03,
+            "xyz_position": [
+                0.92,
+                0.04,
+                0.79
+            ],
+            "quaternion_orientation": [
+                -0.18,
+                0.54,
+                -0.01,
+                0.82
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 139,
+            "time_step": 1718715730.28,
+            "xyz_position": [
+                0.91,
+                0.04,
+                0.79
+            ],
+            "quaternion_orientation": [
+                -0.17,
+                0.54,
+                -0.01,
+                0.82
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 140,
+            "time_step": 1718715730.6,
+            "xyz_position": [
+                0.91,
+                0.04,
+                0.81
+            ],
+            "quaternion_orientation": [
+                -0.16,
+                0.55,
+                -0.01,
+                0.82
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 141,
+            "time_step": 1718715730.89,
+            "xyz_position": [
+                0.91,
+                0.03,
+                0.82
+            ],
+            "quaternion_orientation": [
+                -0.16,
+                0.55,
+                -0.01,
+                0.82
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 142,
+            "time_step": 1718715731.15,
+            "xyz_position": [
+                0.91,
+                0.03,
+                0.83
+            ],
+            "quaternion_orientation": [
+                -0.15,
+                0.56,
+                -0.01,
+                0.82
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 143,
+            "time_step": 1718715731.44,
+            "xyz_position": [
+                0.91,
+                0.03,
+                0.84
+            ],
+            "quaternion_orientation": [
+                -0.15,
+                0.56,
+                -0.01,
+                0.81
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 144,
+            "time_step": 1718715731.69,
+            "xyz_position": [
+                0.91,
+                0.03,
+                0.85
+            ],
+            "quaternion_orientation": [
+                -0.14,
+                0.57,
+                -0.01,
+                0.81
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 145,
+            "time_step": 1718715731.98,
+            "xyz_position": [
+                0.91,
+                0.03,
+                0.86
+            ],
+            "quaternion_orientation": [
+                -0.14,
+                0.57,
+                -0.01,
+                0.81
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 146,
+            "time_step": 1718715732.24,
+            "xyz_position": [
+                0.91,
+                0.03,
+                0.87
+            ],
+            "quaternion_orientation": [
+                -0.13,
+                0.58,
+                -0.01,
+                0.81
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 147,
+            "time_step": 1718715732.51,
+            "xyz_position": [
+                0.91,
+                0.03,
+                0.87
+            ],
+            "quaternion_orientation": [
+                -0.13,
+                0.58,
+                -0.01,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 148,
+            "time_step": 1718715732.77,
+            "xyz_position": [
+                0.91,
+                0.03,
+                0.88
+            ],
+            "quaternion_orientation": [
+                -0.12,
+                0.58,
+                -0.01,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 149,
+            "time_step": 1718715733.03,
+            "xyz_position": [
+                0.91,
+                0.03,
+                0.89
+            ],
+            "quaternion_orientation": [
+                -0.12,
+                0.59,
+                -0.01,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 150,
+            "time_step": 1718715733.31,
+            "xyz_position": [
+                0.91,
+                0.02,
+                0.9
+            ],
+            "quaternion_orientation": [
+                -0.12,
+                0.59,
+                -0.01,
+                0.8
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 151,
+            "time_step": 1718715733.57,
+            "xyz_position": [
+                0.91,
+                0.02,
+                0.91
+            ],
+            "quaternion_orientation": [
+                -0.11,
+                0.6,
+                -0.01,
+                0.79
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 152,
+            "time_step": 1718715733.88,
+            "xyz_position": [
+                0.91,
+                0.02,
+                0.92
+            ],
+            "quaternion_orientation": [
+                -0.11,
+                0.6,
+                -0.0,
+                0.79
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 153,
+            "time_step": 1718715734.14,
+            "xyz_position": [
+                0.91,
+                0.02,
+                0.93
+            ],
+            "quaternion_orientation": [
+                -0.11,
+                0.61,
+                -0.0,
+                0.79
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 154,
+            "time_step": 1718715734.41,
+            "xyz_position": [
+                0.91,
+                0.02,
+                0.94
+            ],
+            "quaternion_orientation": [
+                -0.1,
+                0.62,
+                -0.0,
+                0.78
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 155,
+            "time_step": 1718715734.66,
+            "xyz_position": [
+                0.91,
+                0.02,
+                0.95
+            ],
+            "quaternion_orientation": [
+                -0.1,
+                0.62,
+                -0.0,
+                0.78
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 156,
+            "time_step": 1718715734.96,
+            "xyz_position": [
+                0.91,
+                0.02,
+                0.96
+            ],
+            "quaternion_orientation": [
+                -0.1,
+                0.63,
+                -0.0,
+                0.77
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 157,
+            "time_step": 1718715735.27,
+            "xyz_position": [
+                0.91,
+                0.02,
+                0.97
+            ],
+            "quaternion_orientation": [
+                -0.09,
+                0.63,
+                -0.0,
+                0.77
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 158,
+            "time_step": 1718715735.55,
+            "xyz_position": [
+                0.91,
+                0.02,
+                0.98
+            ],
+            "quaternion_orientation": [
+                -0.09,
+                0.64,
+                -0.0,
+                0.76
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 159,
+            "time_step": 1718715735.84,
+            "xyz_position": [
+                0.91,
+                0.02,
+                0.98
+            ],
+            "quaternion_orientation": [
+                -0.08,
+                0.65,
+                -0.0,
+                0.76
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 160,
+            "time_step": 1718715736.13,
+            "xyz_position": [
+                0.91,
+                0.02,
+                0.99
+            ],
+            "quaternion_orientation": [
+                -0.08,
+                0.65,
+                -0.0,
+                0.75
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 161,
+            "time_step": 1718715736.44,
+            "xyz_position": [
+                0.91,
+                0.01,
+                1.0
+            ],
+            "quaternion_orientation": [
+                -0.08,
+                0.66,
+                -0.0,
+                0.75
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 162,
+            "time_step": 1718715736.74,
+            "xyz_position": [
+                0.91,
+                0.01,
+                1.01
+            ],
+            "quaternion_orientation": [
+                -0.07,
+                0.67,
+                -0.0,
+                0.74
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 163,
+            "time_step": 1718715737.05,
+            "xyz_position": [
+                0.92,
+                0.01,
+                1.02
+            ],
+            "quaternion_orientation": [
+                -0.07,
+                0.67,
+                -0.0,
+                0.74
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 164,
+            "time_step": 1718715737.34,
+            "xyz_position": [
+                0.92,
+                0.01,
+                1.03
+            ],
+            "quaternion_orientation": [
+                -0.07,
+                0.68,
+                -0.0,
+                0.73
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 165,
+            "time_step": 1718715737.63,
+            "xyz_position": [
+                0.92,
+                0.01,
+                1.04
+            ],
+            "quaternion_orientation": [
+                -0.07,
+                0.69,
+                -0.0,
+                0.72
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 166,
+            "time_step": 1718715737.92,
+            "xyz_position": [
+                0.92,
+                0.01,
+                1.05
+            ],
+            "quaternion_orientation": [
+                -0.06,
+                0.69,
+                -0.0,
+                0.72
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 167,
+            "time_step": 1718715738.2,
+            "xyz_position": [
+                0.93,
+                0.01,
+                1.06
+            ],
+            "quaternion_orientation": [
+                -0.06,
+                0.7,
+                -0.0,
+                0.71
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 168,
+            "time_step": 1718715738.45,
+            "xyz_position": [
+                0.93,
+                0.01,
+                1.07
+            ],
+            "quaternion_orientation": [
+                -0.06,
+                0.7,
+                -0.0,
+                0.71
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 169,
+            "time_step": 1718715738.73,
+            "xyz_position": [
+                0.93,
+                0.01,
+                1.07
+            ],
+            "quaternion_orientation": [
+                -0.06,
+                0.71,
+                -0.0,
+                0.7
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 170,
+            "time_step": 1718715739.01,
+            "xyz_position": [
+                0.93,
+                0.01,
+                1.08
+            ],
+            "quaternion_orientation": [
+                -0.05,
+                0.71,
+                -0.0,
+                0.7
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 171,
+            "time_step": 1718715739.26,
+            "xyz_position": [
+                0.93,
+                0.01,
+                1.09
+            ],
+            "quaternion_orientation": [
+                -0.05,
+                0.72,
+                -0.0,
+                0.69
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 172,
+            "time_step": 1718715739.54,
+            "xyz_position": [
+                0.94,
+                0.01,
+                1.09
+            ],
+            "quaternion_orientation": [
+                -0.05,
+                0.72,
+                -0.0,
+                0.69
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 173,
+            "time_step": 1718715739.84,
+            "xyz_position": [
+                0.94,
+                0.01,
+                1.1
+            ],
+            "quaternion_orientation": [
+                -0.05,
+                0.73,
+                -0.0,
+                0.68
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 174,
+            "time_step": 1718715740.1,
+            "xyz_position": [
+                0.94,
+                0.01,
+                1.11
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.73,
+                -0.0,
+                0.68
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 175,
+            "time_step": 1718715740.4,
+            "xyz_position": [
+                0.94,
+                0.01,
+                1.11
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.74,
+                -0.0,
+                0.67
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 176,
+            "time_step": 1718715740.67,
+            "xyz_position": [
+                0.95,
+                0.01,
+                1.12
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.75,
+                -0.0,
+                0.67
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 177,
+            "time_step": 1718715740.95,
+            "xyz_position": [
+                0.95,
+                0.0,
+                1.13
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.75,
+                -0.0,
+                0.66
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 178,
+            "time_step": 1718715741.27,
+            "xyz_position": [
+                0.95,
+                0.0,
+                1.14
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.76,
+                -0.0,
+                0.65
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 179,
+            "time_step": 1718715741.55,
+            "xyz_position": [
+                0.96,
+                0.0,
+                1.14
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.76,
+                -0.0,
+                0.65
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 180,
+            "time_step": 1718715741.86,
+            "xyz_position": [
+                0.96,
+                0.0,
+                1.15
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.77,
+                -0.0,
+                0.64
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 181,
+            "time_step": 1718715742.16,
+            "xyz_position": [
+                0.96,
+                0.0,
+                1.15
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.77,
+                -0.0,
+                0.64
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 182,
+            "time_step": 1718715742.44,
+            "xyz_position": [
+                0.97,
+                0.0,
+                1.16
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.78,
+                -0.0,
+                0.63
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 183,
+            "time_step": 1718715742.74,
+            "xyz_position": [
+                0.97,
+                0.0,
+                1.17
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.78,
+                -0.0,
+                0.62
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 184,
+            "time_step": 1718715743.01,
+            "xyz_position": [
+                0.97,
+                0.0,
+                1.17
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.78,
+                -0.0,
+                0.62
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 185,
+            "time_step": 1718715743.27,
+            "xyz_position": [
+                0.97,
+                0.0,
+                1.18
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.79,
+                -0.0,
+                0.61
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 186,
+            "time_step": 1718715743.57,
+            "xyz_position": [
+                0.98,
+                0.0,
+                1.18
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.79,
+                -0.0,
+                0.61
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 187,
+            "time_step": 1718715743.83,
+            "xyz_position": [
+                0.98,
+                -0.0,
+                1.19
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.8,
+                -0.0,
+                0.6
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 188,
+            "time_step": 1718715744.11,
+            "xyz_position": [
+                0.98,
+                -0.0,
+                1.19
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.8,
+                -0.0,
+                0.6
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 189,
+            "time_step": 1718715744.39,
+            "xyz_position": [
+                0.98,
+                -0.0,
+                1.2
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.8,
+                -0.0,
+                0.6
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 190,
+            "time_step": 1718715744.68,
+            "xyz_position": [
+                0.99,
+                -0.0,
+                1.2
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.81,
+                -0.0,
+                0.59
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 191,
+            "time_step": 1718715744.98,
+            "xyz_position": [
+                0.99,
+                -0.0,
+                1.2
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.81,
+                -0.0,
+                0.59
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 192,
+            "time_step": 1718715745.29,
+            "xyz_position": [
+                0.99,
+                -0.0,
+                1.21
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.81,
+                -0.0,
+                0.58
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 193,
+            "time_step": 1718715745.56,
+            "xyz_position": [
+                1.0,
+                -0.0,
+                1.21
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.82,
+                -0.0,
+                0.58
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 194,
+            "time_step": 1718715745.81,
+            "xyz_position": [
+                1.0,
+                -0.0,
+                1.22
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.82,
+                -0.0,
+                0.57
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 195,
+            "time_step": 1718715746.11,
+            "xyz_position": [
+                1.0,
+                -0.0,
+                1.22
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.82,
+                -0.0,
+                0.57
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 196,
+            "time_step": 1718715746.39,
+            "xyz_position": [
+                1.0,
+                -0.0,
+                1.22
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.82,
+                -0.0,
+                0.56
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 197,
+            "time_step": 1718715746.68,
+            "xyz_position": [
+                1.01,
+                -0.0,
+                1.23
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.83,
+                -0.0,
+                0.56
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 198,
+            "time_step": 1718715746.96,
+            "xyz_position": [
+                1.01,
+                -0.0,
+                1.23
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.83,
+                -0.0,
+                0.56
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 199,
+            "time_step": 1718715747.25,
+            "xyz_position": [
+                1.01,
+                -0.0,
+                1.24
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.83,
+                -0.0,
+                0.55
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 200,
+            "time_step": 1718715747.5,
+            "xyz_position": [
+                1.02,
+                -0.0,
+                1.24
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.84,
+                -0.0,
+                0.55
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 201,
+            "time_step": 1718715747.78,
+            "xyz_position": [
+                1.02,
+                -0.0,
+                1.24
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.84,
+                -0.0,
+                0.54
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 202,
+            "time_step": 1718715748.08,
+            "xyz_position": [
+                1.02,
+                -0.0,
+                1.25
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.84,
+                -0.0,
+                0.54
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 203,
+            "time_step": 1718715748.36,
+            "xyz_position": [
+                1.02,
+                -0.0,
+                1.25
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.84,
+                -0.0,
+                0.54
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 204,
+            "time_step": 1718715748.65,
+            "xyz_position": [
+                1.03,
+                -0.0,
+                1.25
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.85,
+                -0.0,
+                0.53
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 205,
+            "time_step": 1718715748.93,
+            "xyz_position": [
+                1.03,
+                -0.0,
+                1.26
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.85,
+                -0.0,
+                0.53
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 206,
+            "time_step": 1718715749.22,
+            "xyz_position": [
+                1.03,
+                -0.0,
+                1.26
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.85,
+                -0.0,
+                0.52
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 207,
+            "time_step": 1718715749.49,
+            "xyz_position": [
+                1.04,
+                -0.0,
+                1.26
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.85,
+                -0.0,
+                0.52
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 208,
+            "time_step": 1718715749.75,
+            "xyz_position": [
+                1.04,
+                -0.0,
+                1.27
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.85,
+                -0.0,
+                0.52
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 209,
+            "time_step": 1718715750.04,
+            "xyz_position": [
+                1.04,
+                -0.0,
+                1.27
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.86,
+                -0.0,
+                0.51
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 210,
+            "time_step": 1718715750.3,
+            "xyz_position": [
+                1.04,
+                -0.0,
+                1.27
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.86,
+                -0.0,
+                0.51
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 211,
+            "time_step": 1718715750.58,
+            "xyz_position": [
+                1.05,
+                -0.0,
+                1.27
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.86,
+                -0.0,
+                0.51
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 212,
+            "time_step": 1718715750.88,
+            "xyz_position": [
+                1.05,
+                -0.0,
+                1.28
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.86,
+                -0.0,
+                0.5
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 213,
+            "time_step": 1718715751.15,
+            "xyz_position": [
+                1.05,
+                -0.0,
+                1.28
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.87,
+                -0.0,
+                0.5
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 214,
+            "time_step": 1718715751.45,
+            "xyz_position": [
+                1.06,
+                -0.0,
+                1.28
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.87,
+                -0.0,
+                0.49
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 215,
+            "time_step": 1718715751.74,
+            "xyz_position": [
+                1.06,
+                -0.0,
+                1.29
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.87,
+                -0.0,
+                0.49
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 216,
+            "time_step": 1718715752.03,
+            "xyz_position": [
+                1.06,
+                -0.0,
+                1.29
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.87,
+                -0.0,
+                0.49
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 217,
+            "time_step": 1718715752.31,
+            "xyz_position": [
+                1.06,
+                -0.0,
+                1.29
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.87,
+                -0.0,
+                0.48
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 218,
+            "time_step": 1718715752.61,
+            "xyz_position": [
+                1.07,
+                -0.0,
+                1.29
+            ],
+            "quaternion_orientation": [
+                -0.04,
+                0.88,
+                -0.0,
+                0.48
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 219,
+            "time_step": 1718715752.89,
+            "xyz_position": [
+                1.07,
+                -0.0,
+                1.3
+            ],
+            "quaternion_orientation": [
+                -0.05,
+                0.88,
+                -0.0,
+                0.48
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 220,
+            "time_step": 1718715753.2,
+            "xyz_position": [
+                1.07,
+                -0.0,
+                1.3
+            ],
+            "quaternion_orientation": [
+                -0.05,
+                0.88,
+                -0.0,
+                0.48
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 221,
+            "time_step": 1718715753.45,
+            "xyz_position": [
+                1.07,
+                -0.0,
+                1.3
+            ],
+            "quaternion_orientation": [
+                -0.05,
+                0.88,
+                -0.0,
+                0.48
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 222,
+            "time_step": 1718715753.76,
+            "xyz_position": [
+                1.07,
+                -0.0,
+                1.3
+            ],
+            "quaternion_orientation": [
+                -0.05,
+                0.88,
+                -0.0,
+                0.47
+            ],
+            "gripper_state": 0.04
+        },
+        {
+            "index": 223,
+            "time_step": 1718715754.06,
+            "xyz_position": [
+                1.07,
+                -0.0,
+                1.3
+            ],
+            "quaternion_orientation": [
+                -0.05,
+                0.88,
+                -0.0,
+                0.47
+            ],
+            "gripper_state": 0.04
+        }
+    ]
+}
