@@ -62,6 +62,7 @@ class tableTopEnv:
         else:
             p.connect(p.DIRECT) #p.DIRECT or p.GUI for graphical version
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
+        print(pybullet_data.getDataPath())
         p.setGravity(0,0,-10)
 
         

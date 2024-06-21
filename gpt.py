@@ -7,6 +7,7 @@ import random
 import numpy as np
 import json
 from dotenv import load_dotenv
+import math
 
 class timeout:
     def __init__(self, seconds=1, error_message='Timeout'):
@@ -26,7 +27,7 @@ class timeout:
 class OpenAIClient:
     def __init__(self, api_key):
         self.client = OpenAI(api_key=api_key)
-        self.system_prompt = self.load_prompt("prompts/mc_generation_prompt.txt")
+        self.system_prompt = self.load_prompt("data/prompts/mc_example/mc_generation_prompt.txt")
         self.conversation_history = []  # To store all responses from ChatGPT
         print("OpenAI client initialized")
 
@@ -65,6 +66,7 @@ class OpenAIClient:
         try:
             response = self.client.chat.completions.create(
                 model='gpt-3.5-turbo',  # Consider updating the model if using an updated API
+                # response_format={ "type": "json_object" },
                 messages=[{"role": "system", "content": prompt}],
                 max_tokens=max_tokens,
                 temperature=temperature,
@@ -89,7 +91,13 @@ class OpenAIClient:
         return: The generated multiple choice question'''
         self.update_system_prompt(user_prompt, scene_prompt)
 
-        response, text = self.lm(self.system_prompt)
+        response, text = self.lm(self.system_prompt, logprobs=True, top_logprobs=5)
+
+
+        response_dict = response.to_dict()
+        with open('data/responses/intial_prompt_full.json', 'w') as json_file:
+            json.dump(response_dict, json_file, indent=4)
+
         text = text.strip()
         mc_gen_full, mc_gen_all, add_mc_prefix = self.process_mc_raw(text)
 
@@ -104,10 +112,10 @@ class OpenAIClient:
         mc_score_response, _ = self.lm(prompt, max_tokens=1, logprobs=True, top_logprobs=5)
 
         # save mc_score_repsonse response to a json file
-        with open('mc_score_response.json', 'w') as f:
-            f.write(str(mc_score_response))
+        mc_score_response_dict = mc_score_response.to_dict()
+        with open('data/responses/mc_prompt_full.json', 'w') as json_file:
+            json.dump(mc_score_response_dict, json_file, indent=4)
         
-
         # convert response to json
         print("=========DEMO MC SCORE RESPONSE==========")
         print(mc_score_response.choices[0].logprobs.content[0].top_logprobs)
