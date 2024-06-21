@@ -1,13 +1,10 @@
 from openai import OpenAI
+import numpy as np
 
-<<<<<<< Updated upstream
-# TODO USE .ENV FILE
-=======
 class timeout:
     def __init__(self, seconds=1, error_message='Timeout'):
         self.seconds = seconds
         self.error_message = error_message
->>>>>>> Stashed changes
 
 # client = OpenAI()
 
@@ -20,9 +17,6 @@ completion = client.chat.completions.create(
   ]
 )
 
-<<<<<<< Updated upstream
-print(completion.choices[0].message)
-=======
 class OpenAIClient:
     def __init__(self, api_key):
         self.client = OpenAI(api_key=api_key)
@@ -201,4 +195,3 @@ if __name__ == "__main__":
     api_key = os.getenv('OPENAI_API_KEY')
     client = OpenAIClient(api_key=api_key)
     client.process(instruction, scene_objects, context_description)
->>>>>>> Stashed changes

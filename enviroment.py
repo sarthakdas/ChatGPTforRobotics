@@ -12,7 +12,7 @@ from base64 import b64encode
 from IPython.display import HTML
 from urdf_models import models_data
 from urdf_models import models_data
-
+# Michael was also here
 import camera
 import robot
 
