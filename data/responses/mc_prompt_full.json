@@ -1,0 +1,70 @@
+{
+    "id": "chatcmpl-9cbJDZziQmgJTqJbd8wn03FQhmb43",
+    "choices": [
+        {
+            "finish_reason": "length",
+            "index": 0,
+            "logprobs": {
+                "content": [
+                    {
+                        "token": "B",
+                        "bytes": [
+                            66
+                        ],
+                        "logprob": -0.66837543,
+                        "top_logprobs": [
+                            {
+                                "token": "B",
+                                "bytes": [
+                                    66
+                                ],
+                                "logprob": -0.66837543
+                            },
+                            {
+                                "token": "E",
+                                "bytes": [
+                                    69
+                                ],
+                                "logprob": -0.73173374
+                            },
+                            {
+                                "token": "C",
+                                "bytes": [
+                                    67
+                                ],
+                                "logprob": -5.839953
+                            },
+                            {
+                                "token": "A",
+                                "bytes": [
+                                    65
+                                ],
+                                "logprob": -6.1908193
+                            },
+                            {
+                                "token": "D",
+                                "bytes": [
+                                    68
+                                ],
+                                "logprob": -7.337691
+                            }
+                        ]
+                    }
+                ]
+            },
+            "message": {
+                "content": "B",
+                "role": "assistant"
+            }
+        }
+    ],
+    "created": 1718986907,
+    "model": "gpt-3.5-turbo-0125",
+    "object": "chat.completion",
+    "system_fingerprint": null,
+    "usage": {
+        "completion_tokens": 1,
+        "prompt_tokens": 147,
+        "total_tokens": 148
+    }
+}

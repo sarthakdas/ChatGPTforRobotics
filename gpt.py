@@ -27,7 +27,8 @@ class timeout:
 class OpenAIClient:
     def __init__(self, api_key):
         self.client = OpenAI(api_key=api_key)
-        self.system_prompt = self.load_prompt("data/prompts/mc_example/mc_generation_prompt.txt")
+        # self.system_prompt = self.load_prompt("data/prompts/mc_example/mc_generation_prompt.txt")
+        self.system_prompt = self.load_prompt("data/prompts/mc_generation_prompt_Waypoint.txt")
         self.conversation_history = []  # To store all responses from ChatGPT
         print("OpenAI client initialized")
 
@@ -201,8 +202,8 @@ class OpenAIClient:
         return mc_prompt, mc_processed_all, add_mc_prefix
 
 if __name__ == "__main__":
-    instruction = "throw the singular food into the bin"
-    scene_objects = "there is a banana, an apple, and a sandwich on the counter"
+    instruction = "[0.18,0.18,0.18,0.18]"
+    scene_objects = "[18,18,18,18]"
     context_description = "You are a robot operating in an office kitchen. You are in front of a counter with two closed drawers, a top one and a bottom one. There is also a landfill bin, a recycling bin, and a compost bin."
 
     # get api from .env 
