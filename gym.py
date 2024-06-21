@@ -17,65 +17,33 @@ import json
 import camera
 import enviroment
 import gpt
-
-# OpenAI API key from env
-openai_api_key = os.getenv('OPENAI_API_KEY')
-
+import core
+import robotController
+from dotenv import load_dotenv
 
 # Initialize environment and code generator
 env = enviroment.tableTopEnv()
+load_dotenv()
+openai_api_key = os.getenv("OPENAI_API_KEY")
 code_gen = gpt.OpenAIClient(api_key=openai_api_key)
 
-def go_to_position(target_pos, gripper_val, time=10):
-    '''move the robot to the target position and set the gripper value in time steps,
-    gripper open = 0, gripper close = 1
-    . Input: target position, gripper value and time. Output: None.'''
-    '''move the robot to the target position and set the gripper value in time steps,
-    gripper open = 0, gripper close = 1
-    . Input: target position, gripper value and time. Output: None.'''
-    # linear interpolate to target position in time steps
-    # get current position
+def go_to_position(target_pos, target_orn, gripper_val, duration=10):
+    '''Move the robot to the target position and set the gripper value over a duration.'''
     pos = env.robot.get_end_effector_position()
-    # print("target_pos", target_pos)
-    # print("pos", pos)
-    # print("target_pos", target_pos)
-    # print("pos", pos)
-    for i in range(time):
-        # calculate new position for time step, interpolate between current and target position, current state is a tuple of position and orientation
-        new_pos = (pos[0] + (target_pos[0] - pos[0]) * i / time, pos[1] + (target_pos[1] - pos[1]) * i / time, pos[2] + (target_pos[2] - pos[2]) * i / time)
-        # calculate new position for time step, interpolate between current and target position, current state is a tuple of position and orientation
-        new_pos = (pos[0] + (target_pos[0] - pos[0]) * i / time, pos[1] + (target_pos[1] - pos[1]) * i / time, pos[2] + (target_pos[2] - pos[2]) * i / time)
-        # move to new position
-        # print(new_pos)
-        # print(new_pos)
-        env.time_sequence(new_pos, gripper_val)
-        # # wait for time
-        # env.time_step()
+    # Linear interpolate to target position
+    for i in range(duration):
+        new_pos = (pos[0] + (target_pos[0] - pos[0]) * i / duration,
+                   pos[1] + (target_pos[1] - pos[1]) * i / duration,
+                   pos[2] + (target_pos[2] - pos[2]) * i / duration)
+        env.time_sequence(new_pos, target_orn, gripper_val)
+    env.time_sequence(target_pos, target_orn, gripper_val)
 
 def object_name_to_id_dic():
-    '''get the object dictionary and return the object names and ids. Output: object dictionary where the colour_name is the key and object_id is the value
-    e.g {'yellow block': 5, 'pink block': 6, 'orange block': 7}'''
-    # get the object list
-    object_list = env.obj_name_to_id 
-    return object_list
+    '''Get the object dictionary and return the object names and ids.'''
+    return env.obj_name_to_id
 
 def get_object_position(obj_id):
-    '''get the object position and return the object position. Input: object id. Output: object position [X,Y,Z].'''
-    # get the object position
-    pos, _ = env.get_object_position(obj_id)
-    return pos
-
-def wait(steps=10):
-def object_name_to_id_dic():
-    '''get the object dictionary and return the object names and ids. Output: object dictionary where the colour_name is the key and object_id is the value
-    e.g {'yellow block': 5, 'pink block': 6, 'orange block': 7}'''
-    # get the object list
-    object_list = env.obj_name_to_id 
-    return object_list
-
-def get_object_position(obj_id):
-    '''get the object position and return the object position. Input: object id. Output: object position [X,Y,Z].'''
-    # get the object position
+    '''Get the object position.'''
     pos, _ = env.get_object_position(obj_id)
     return pos
 
@@ -112,6 +80,7 @@ skip_waypoints = 0
 # json_filepath = 'prompts/demonstrations/waypoints.json'
 json_filepath = 'prompts/response_waypoints.json'
 
+print("=======EXECUTING MAIN CODE=========")
 
 # Execute the waypoints from the JSON file
 execute_waypoints_from_json(json_filepath, skip=skip_waypoints)

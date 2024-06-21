@@ -1,4 +1,4 @@
 .env
-*.mp4
+.mp4
 .DS_Store
 .__pycache__

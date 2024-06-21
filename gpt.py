@@ -1,21 +1,27 @@
+import os
+import re
 from openai import OpenAI
+import signal
+import time
+import random
 import numpy as np
+import json
+from dotenv import load_dotenv
 
 class timeout:
     def __init__(self, seconds=1, error_message='Timeout'):
         self.seconds = seconds
         self.error_message = error_message
 
-# client = OpenAI()
+    def handle_timeout(self, signum, frame):
+        raise TimeoutError(self.error_message)
 
+    def __enter__(self):
+        signal.signal(signal.SIGALRM, self.handle_timeout)
+        signal.alarm(self.seconds)
 
-completion = client.chat.completions.create(
-  model="gpt-3.5-turbo",
-  messages=[
-{"role": "system", "content": "you are a geometry planner, output coordinates that center around the users requested shape. DO NOT OUTPUT ANYRHING OTHER THEN THE COORDINATES"},
-    {"role": "user", "content": "a square that is 5cm by 5cm"}
-  ]
-)
+    def __exit__(self, type, value, traceback):
+        signal.alarm(0)
 
 class OpenAIClient:
     def __init__(self, api_key):
@@ -191,7 +197,11 @@ if __name__ == "__main__":
     scene_objects = "there is a banana, an apple, and a sandwich on the counter"
     context_description = "You are a robot operating in an office kitchen. You are in front of a counter with two closed drawers, a top one and a bottom one. There is also a landfill bin, a recycling bin, and a compost bin."
 
-    # get api key from environment variable
+    # get api from .env 
+    load_dotenv()
     api_key = os.getenv('OPENAI_API_KEY')
+
+    print("API Key: ", api_key, type(api_key))
+
     client = OpenAIClient(api_key=api_key)
     client.process(instruction, scene_objects, context_description)

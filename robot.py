@@ -89,8 +89,6 @@ class KukaRobot:
         # return joint cartesian position
         return p.getLinkState(self.kuka_id, joint_id)[0]
         
-<<<<<<< Updated upstream
-=======
     def adjust_target_for_gripper(self,target_pos, gripper_length, end_effector_orn):
         """
         Adjust the target position to account for the gripper length.
@@ -252,4 +250,3 @@ class PandaRobot:
         qw = math.cos(roll/2) * math.cos(pitch/2) * math.cos(yaw/2) + math.sin(roll/2) * math.sin(pitch/2) * math.sin(yaw/2)
         
         return [qx, qy, qz, qw]
->>>>>>> Stashed changes
