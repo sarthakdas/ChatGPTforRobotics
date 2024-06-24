@@ -8,6 +8,7 @@ import numpy as np
 import json
 from dotenv import load_dotenv
 import math
+import ast
 
 class timeout:
     def __init__(self, seconds=1, error_message='Timeout'):
@@ -43,7 +44,7 @@ class OpenAIClient:
 
     def lm(self,
            prompt,
-           max_tokens=256,
+           max_tokens=4096,
            temperature=0,
            logprobs=None,
            top_logprobs=None,
@@ -55,7 +56,8 @@ class OpenAIClient:
                360: 100.0,  # D (with space at front)
                412: 100.0,  # E (with space at front)
            },
-           timeout_seconds=20):
+           timeout_seconds=20,
+           response_format={"type": "json_object"}):
 
         max_attempts = 5
 
@@ -73,7 +75,9 @@ class OpenAIClient:
                 temperature=temperature,
                 logprobs=logprobs,
                 top_logprobs=top_logprobs,
-                stop=stop
+                stop=stop,
+                logit_bias=logit_bias,
+                response_format=response_format
             )
             print("=========RESPONSE==========")
             print(response.choices[0].message.content)
@@ -92,25 +96,31 @@ class OpenAIClient:
         return: The generated multiple choice question'''
         self.update_system_prompt(user_prompt, scene_prompt)
 
-        response, text = self.lm(self.system_prompt, logprobs=True, top_logprobs=5)
+        response, text = self.lm(self.system_prompt, logit_bias=None)
 
 
         response_dict = response.to_dict()
         with open('data/responses/intial_prompt_full.json', 'w') as json_file:
             json.dump(response_dict, json_file, indent=4)
+        
+        with open('data/responses/intial_prompt_full_text.json', 'w') as json_file:
+            json.dump(text, json_file, indent=4)
 
-        text = text.strip()
         mc_gen_full, mc_gen_all, add_mc_prefix = self.process_mc_raw(text)
+    
+        print("=========DEMO MC QUESTION==========")
+        print(mc_gen_full)
+        print("=====================")
 
         # load the prompt for the next step
         self.system_prompt = self.system_prompt.split('\n\n')[-1].strip()
         demo_mc_score_prompt = context_description.strip()
         demo_mc_score_prompt = demo_mc_score_prompt + '\n\n' + self.system_prompt + '\n' + mc_gen_full
-        demo_mc_score_prompt += "\nWe: Which option is correct? Answer with a single letter."
+        demo_mc_score_prompt += "\nWe: Which option is correct? Answer with a single letter A,B,C,D and so on."
         demo_mc_score_prompt += "\nYou:"
 
         prompt = demo_mc_score_prompt
-        mc_score_response, _ = self.lm(prompt, max_tokens=1, logprobs=True, top_logprobs=5)
+        mc_score_response, _ = self.lm(prompt, max_tokens=1, logprobs=True, top_logprobs=5, response_format={"type": "text"})
 
         # save mc_score_repsonse response to a json file
         mc_score_response_dict = mc_score_response.to_dict()
@@ -162,21 +172,15 @@ class OpenAIClient:
         self.conversation_history.append(text)
         return text
 
-    def process_mc_raw(self, mc_raw, add_mc='an option not listed here'):
-        mc_all = mc_raw.split('\n')
+    
+    def process_mc_raw(self, mc_json_string, add_mc='an option not listed here'):
+        response = json.loads(mc_json_string)
 
+        # iterate through all keys in repsonse and append them to a list
         mc_processed_all = []
-        for mc in mc_all:
-            mc = mc.strip()
-
-            # skip nonsense
-            if len(mc) < 5 or mc[0] not in [
-                'a', 'b', 'c', 'd', 'A', 'B', 'C', 'D', '1', '2', '3', '4'
-            ]:
-                continue
-            mc = mc[2:]  # remove a), b), ...
-            mc = mc.strip().lower().split('.')[0]
-            mc_processed_all.append(mc)
+        for key in response.keys():
+            mc_processed_all.append(str(response[key]))
+        
         if len(mc_processed_all) < 4:
             raise 'Cannot extract four options from the raw output.'
 
@@ -201,12 +205,13 @@ class OpenAIClient:
         add_mc_prefix = prefix_all[mc_processed_all.index(add_mc)][0]
         return mc_prompt, mc_processed_all, add_mc_prefix
 
-if __name__ == "__main__":
-    instruction = "[0.18,0.18,0.18,0.18]"
-    scene_objects = "[18,18,18,18]"
-    context_description = "You are a robot operating in an office kitchen. You are in front of a counter with two closed drawers, a top one and a bottom one. There is also a landfill bin, a recycling bin, and a compost bin."
 
-    # get api from .env 
+if __name__ == "__main__":
+    context_description = "You are a robot and you are to genereate 4 possible waypoint paths that you can do based on the input: "
+    scene_objects = {'orange_cup': [91, -7, 65], 'green_cup': [78, -7, 65], 'blue_cup': [84, 1, 65]}
+    instruction = "Generate 4 possible waypoint paths that you can do based on the objects in the scene: "
+
+    # # get api from .env 
     load_dotenv()
     api_key = os.getenv('OPENAI_API_KEY')
 
@@ -214,3 +219,4 @@ if __name__ == "__main__":
 
     client = OpenAIClient(api_key=api_key)
     client.process(instruction, scene_objects, context_description)
+

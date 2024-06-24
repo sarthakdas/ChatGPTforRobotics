@@ -7,10 +7,11 @@ import robot
 import enviroment
 import numpy as np
 import json
+import math
 
 # Global variables
 key_pressed = None
-selected_joint = 11  # Initially set to the end effector joint
+selected_joint = 7  # Initially set to the end effector joint
 waypoints = []  # List to store waypoints
 robot_starting_joint_pos = []
 
@@ -98,7 +99,7 @@ def control_robot(key, target_pos, target_orn, robotObj, pos_step_size, orn_step
             # Print target pos to 2sf
             stdscr.addstr(5, 0, f"Target position: {[round(pos, 2) for pos in target_pos]}   ")
             stdscr.addstr(6, 0, f"Target orientation: {[round(orn, 2) for orn in target_orn]}   ")
-            robotObj.robot_control(target_pos, target_orn=target_orn, joint_id=selected_joint)
+            robotObj.robot_control(target_pos, target_orn=[0, 1.01*math.pi, 0], joint_id=6)
     stdscr.refresh()
     return True  # Continue the main loop
 
@@ -124,10 +125,11 @@ def capture_waypoints(robotObj, waypoints):
     gripper_state = p.getJointState(robotObj.panda_id, 9)[0]  # Assume both gripper fingers move together
     waypoints.append((time.time(), [round(coord, 2) for coord in pos], [round(q, 2) for q in orn], round(gripper_state, 2)))
 
-def save_waypoints_to_json(waypoints, robot_starting_joint_pos):
+def save_waypoints_to_json(waypoints, robot_starting_joint_pos, objects):
     data = {
         'demonstration_name': 'FILL_ME_IN',
         'starting_joint_pos': [round(pos, 2) for pos in robot_starting_joint_pos],
+        'objects': objects,
         'demonstration': []
     }
     for index, waypoint in enumerate(waypoints):
@@ -139,19 +141,19 @@ def save_waypoints_to_json(waypoints, robot_starting_joint_pos):
             'gripper_state': waypoint[3]
         })
     
-    with open('prompts/demonstrations/waypoints.json', 'w') as jsonfile:
+    with open('data/demonstrations/waypoints.json', 'w') as jsonfile:
         json.dump(data, jsonfile, indent=4)
 
 def set_robot_end_effector(robotObj, position, orientation):
     robotId = robotObj.panda_id
-    joint_angles = p.calculateInverseKinematics(robotId, 11, position, orientation)
+    joint_angles = p.calculateInverseKinematics(robotId, 7, position, orientation)
     num_joints = min(len(joint_angles), p.getNumJoints(robotId))
     for i in range(num_joints):
         p.resetJointState(robotId, i, joint_angles[i])
     p.stepSimulation()
 
 def main(stdscr):
-    env = enviroment.tableTopEnv(display=True)
+    env = enviroment.TableTopEnv(display=True, objects={'orange_cup': None, 'green_cup': None, 'blue_cup': None})
     global key_pressed, waypoints, robot_starting_joint_pos
     # Clear screen
     stdscr.clear()
@@ -183,11 +185,17 @@ def main(stdscr):
     orn_step_size = 0.05
 
     # Define initial waypoint for the end effector
-    initial_waypoint_position = [0.3, 0, 0.9]  # Example position
-    initial_waypoint_orientation = p.getQuaternionFromEuler([0, 0, 0])  # Example orientation
+    initial_waypoint_position = robotObj.get_end_effector_position()
+    # convert to list
+    initial_waypoint_position = list(initial_waypoint_position)
 
-    # Set robot end effector to initial waypoint
-    set_robot_end_effector(robotObj, initial_waypoint_position, initial_waypoint_orientation)
+    # Orientation quaternion for forward-facing gripper (rotated 90 degrees around X-axis)
+    initial_waypoint_orientation = robotObj.get_end_effector_orientation() # Rotate 90 degrees around X-axis
+
+    # save initial orientation to json file
+    
+    # convert to list
+    initial_waypoint_orientation = list(initial_waypoint_orientation)
 
     # Store initial joint positions
     robot_starting_joint_pos = robotObj.get_joint_positions()
@@ -201,7 +209,7 @@ def main(stdscr):
     # Main loop
     running = True
     last_capture_time = time.time()
-
+    objects = env.get_object_positions()
     while running:
         # Step the simulation
         # env.capture_frames()
@@ -222,7 +230,7 @@ def main(stdscr):
         time.sleep(1./240.)
 
     # Save waypoints to JSON
-    save_waypoints_to_json(waypoints, robot_starting_joint_pos)
+    save_waypoints_to_json(waypoints, robot_starting_joint_pos, objects)
 
     # Disconnect from the physics server
     p.disconnect()

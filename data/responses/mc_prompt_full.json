@@ -1,5 +1,5 @@
 {
-    "id": "chatcmpl-9cbJDZziQmgJTqJbd8wn03FQhmb43",
+    "id": "chatcmpl-9daZK6OoiVZFiy2jqKhdkjFrDVqmq",
     "choices": [
         {
             "finish_reason": "length",
@@ -7,64 +7,66 @@
             "logprobs": {
                 "content": [
                     {
-                        "token": "B",
+                        "token": "out",
                         "bytes": [
-                            66
+                            111,
+                            117,
+                            116
                         ],
-                        "logprob": -0.66837543,
+                        "logprob": -9999.0,
                         "top_logprobs": [
                             {
-                                "token": "B",
+                                "token": "C",
                                 "bytes": [
-                                    66
+                                    67
                                 ],
-                                "logprob": -0.66837543
+                                "logprob": -0.111570664
                             },
                             {
                                 "token": "E",
                                 "bytes": [
                                     69
                                 ],
-                                "logprob": -0.73173374
+                                "logprob": -2.284859
                             },
                             {
-                                "token": "C",
+                                "token": "B",
                                 "bytes": [
-                                    67
+                                    66
                                 ],
-                                "logprob": -5.839953
+                                "logprob": -5.75717
                             },
                             {
                                 "token": "A",
                                 "bytes": [
                                     65
                                 ],
-                                "logprob": -6.1908193
+                                "logprob": -8.162689
                             },
                             {
                                 "token": "D",
                                 "bytes": [
                                     68
                                 ],
-                                "logprob": -7.337691
+                                "logprob": -8.523758
                             }
                         ]
                     }
                 ]
             },
             "message": {
-                "content": "B",
+                "content": "out",
                 "role": "assistant"
             }
         }
     ],
-    "created": 1718986907,
+    "created": 1719222390,
     "model": "gpt-3.5-turbo-0125",
     "object": "chat.completion",
     "system_fingerprint": null,
     "usage": {
         "completion_tokens": 1,
-        "prompt_tokens": 147,
-        "total_tokens": 148
+        "prompt_tokens": 329,
+        "total_tokens": 330
     }
 }

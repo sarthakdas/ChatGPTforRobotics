@@ -134,24 +134,25 @@ class KukaRobot:
 
 
 class PandaRobot: 
-    def __init__(self, tool="suction", basePosition=[1.400000, -0.200000, 0.600000], baseOrientation=[0.000000, 0.000000, 0.000000, 1.000000], jointPositions=[-0.45556,-1.86304,-1.76341, -0.90334,-1.67523,-1.29374,0.28787]):
+    def __init__(self, tool="suction", basePosition=[1.400000, -0.200000, 0.600000], baseOrientation=[0.000000, 0.000000, 0.000000, 1.000000], jointPositions=[math.pi, -0.3, 0, -2.4, 0, 2.0, 0.7]):
         self.panda_id = p.loadURDF("franka_panda/panda.urdf", basePosition=basePosition, baseOrientation=baseOrientation, useFixedBase=True)
-        self.n_joints = 7
+        self.n_joints = 6
         self.tool = tool
         self.end_effector_id = 11
         self.gripper_joints = [9, 10]
 
+        print(f'PandaRobot: {self.n_joints} joints')
+
         for jointIndex in range(self.n_joints):
             p.resetJointState(self.panda_id, jointIndex, jointPositions[jointIndex])
-            p.setJointMotorControl2(self.panda_id, jointIndex, p.POSITION_CONTROL, jointPositions[jointIndex], 0)
     
     def set_joint_positions(self, joint_positions):
         '''Set the joint positions. Input: joint positions. Output: None.'''
         for jointIndex in range(self.n_joints):
-            p.resetJointState(self.panda_id, jointIndex, joint_positions[jointIndex])
+            # p.resetJointState(self.panda_id, jointIndex, joint_positions[jointIndex])
             p.setJointMotorControl2(self.panda_id, jointIndex, p.POSITION_CONTROL, joint_positions[jointIndex], 0)
         
-    def robot_control(self, target_pos, target_orn = [0,0,0,1], gripper_val = 0.04, joint_id = None):
+    def robot_control(self, target_pos, target_orn = [0,0,0,1], gripper_val = 0, joint_id = None):
         '''Move the robot to the target position and set the gripper value. Input: target position and gripper value. Output: None.'''
         if joint_id is None:
             joint_id = self.end_effector_id
@@ -166,7 +167,7 @@ class PandaRobot:
     def control_gripper(self, value):
         '''Control the gripper. Input: value (0 to close, 1 to open). Output: None.'''
         for joint in self.gripper_joints:
-            p.setJointMotorControl2(bodyIndex=self.panda_id, jointIndex=joint, controlMode=p.POSITION_CONTROL, targetPosition=value, force=100)
+            p.setJointMotorControl2(bodyIndex=self.panda_id, jointIndex=joint, controlMode=p.POSITION_CONTROL, targetPosition=value, force=500)
 
 
     def get_end_effector_force(self):
@@ -191,9 +192,20 @@ class PandaRobot:
         '''Return the positions of all joints. Output: joint positions.'''
         joint_positions = []
         for j in range(11):
-            # p.getJointState(self.panda_id, j)[0] returns the joint position value as a float number in a tuple of x, y, z
+            # p.getJointState(self.panda_id, j)[0] returns the joint position value as a float number
             joint_positions.append(p.getJointState(self.panda_id, j)[0])
         return joint_positions
+    
+    def set_joint_position(self, joint_id, position):
+        '''Set the position of the joint. Input: joint id and position. Output: None.'''
+        p.setJointMotorControl2(self.panda_id, joint_id, p.POSITION_CONTROL, position, 0)
+
+    
+    def set_joint_positions(self, joint_positions):
+        '''Set the joint positions. Input: joint positions. Output: None.'''
+        for j in range(7):
+            p.resetJointState(self.panda_id, j, joint_positions[j])
+            p.setJointMotorControl2(self.panda_id, j, p.POSITION_CONTROL, joint_positions[j], 0)
         
     def get_joint_positions_xyz(self):
         """
@@ -250,3 +262,29 @@ class PandaRobot:
         qw = math.cos(roll/2) * math.cos(pitch/2) * math.cos(yaw/2) + math.sin(roll/2) * math.sin(pitch/2) * math.sin(yaw/2)
         
         return [qx, qy, qz, qw]
+    
+    def rotate_joints(self, steps=100, rotation_angle=0.1):
+        '''Rotate each joint around its axis for a specified number of timesteps.'''
+        for jointIndex in range(self.n_joints):
+            new_position = 0
+            for step in range(steps):
+                # print step and joint index
+                print(f"Step: {step}, Joint: {jointIndex}, new_position: {new_position}")
+            
+                current_position = p.getJointState(self.panda_id, jointIndex)[0]
+                new_position = current_position + rotation_angle
+                self.set_joint_position(jointIndex, new_position)
+                p.stepSimulation()  # Advance the simulation
+                time.sleep(1. / 240.)
+
+    def rotate_joint(self, joint_id, steps=300, rotation_angle=0.1):
+        '''Rotate a specific joint around its axis for a specified number of timesteps.'''
+        new_position = 0
+        for step in range(steps):
+            # print step and joint index
+            print(f"Step: {step}, Joint: {joint_id}, new_position: {new_position}")
+        
+            current_position = p.getJointState(self.panda_id, joint_id)[0]
+            new_position = current_position + rotation_angle
+            self.set_joint_position(joint_id, new_position)
+            p.stepSimulation()

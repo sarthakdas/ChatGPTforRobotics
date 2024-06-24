@@ -13,7 +13,7 @@ from IPython.display import HTML
 
 
 
-class video_recorder:
+class VideoRecorder:
 
     def __init__(self, pos=[0.95, -0.2, 0.2], distance=2.05, yaw=-50, pitch=-40, roll=0, width=480, height=480, up=[0, 0, 1], up_axis_idx=2, near_plane=0.01, far_plane=100, fov=60, filename='static.mp4'):
         self.cam_width = width
@@ -36,6 +36,10 @@ class video_recorder:
         self.task = ""
         self.robot_pos = ""
         self.robot_target_pos = ""
+        self.robot_orn = ""
+        self.robot_target_orn = ""
+
+        self.other = "" # for debugging purposes
 
         # Set the camera properties
         p.resetDebugVisualizerCamera(self.cam_distance, self.cam_yaw, self.cam_pitch, self.cam_target_pos)
@@ -49,14 +53,24 @@ class video_recorder:
         # add text to the image
         image = self.prepare_array_for_cv2(image)
 
-        cv2.putText(image, self.task , (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
-        cv2.putText(image, self.robot_pos , (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
-        cv2.putText(image, self.robot_target_pos , (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
+        cv2.putText(image, self.task, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
+        cv2.putText(image, self.robot_pos, (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
+        cv2.putText(image, self.robot_target_pos, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
+        cv2.putText(image, self.robot_orn, (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
+        cv2.putText(image, self.robot_target_orn, (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
+        
+        # self.other is a list and we want to print each element on a new line
+        y = 80
+        for i in self.other:
+            cv2.putText(image, i, (10, y), cv2.FONT_HERSHEY_SIMPLEX, 0.25, (0, 0, 0), 1, cv2.LINE_AA)
+            y += 10
+
         # convert the image back to RGB
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         self.vid.send(np.ascontiguousarray(image))
 
     def close(self):
+        print("Closing video writer")
         self.vid.close()
 
     def prepare_array_for_cv2(self,array):
